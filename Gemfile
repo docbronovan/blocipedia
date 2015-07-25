@@ -11,7 +11,7 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'faker'
 gem 'devise'
-gem 'bootstrap-sass'
+gem 'bootstrap-sass', '3.2.0.2'
 
 gem 'puma'
 gem 'will_paginate', '~> 3.0.5'
