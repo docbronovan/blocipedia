@@ -81,5 +81,5 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: 'brock-donovan-blocipedia.herokuapp.com'}
 
   # Force all access to the app over SSL, user Strict-Transport-Security, and use secure cookies.
-  config.force_ssl = true
+  # config.force_ssl = true
 end
