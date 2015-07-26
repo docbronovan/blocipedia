@@ -3,5 +3,5 @@ class Wiki < ActiveRecord::Base
 
   default_scope { order('created_at DESC') }
   
-  scope :visible_to, -> (private) { where('private = ?', false) }
+  scope :visible_to, -> (current_user) { where('private = ?', false) or where('user_id = ?', current_user)}
 end
