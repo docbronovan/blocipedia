@@ -3,6 +3,5 @@ class Wiki < ActiveRecord::Base
 
   default_scope { order('created_at DESC') }
   
-  scope :visible_to, -> (user) { user ? all : joins(:wikis).where('wikis.private' => false)}
-  
+  scope :visible_to, -> (private) { where('private = ?', false) }
 end
