@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
-  get 'welcome/index'
-
-  get 'welcome/about'
+  resources :wikis
 
   devise_for :users, :controllers => { :registration => :registration }
   resources :users, only: [:update, :show, :index] do
