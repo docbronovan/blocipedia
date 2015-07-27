@@ -5,4 +5,24 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
   has_many :wikis
+
+  after_initialize :init
+
+  def init
+    self.role  ||= 'standard' #will set the default role to standard only if it's nil
+  end
+
+  def admin?
+    role == 'admin'
+  end
+
+  def standard?
+    role == 'standard'
+  end
+
+  def premium?
+    role == 'premium'
+  end
+
+
 end

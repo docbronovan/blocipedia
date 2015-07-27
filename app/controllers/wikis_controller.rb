@@ -2,6 +2,7 @@ class WikisController < ApplicationController
   def index
     @wikis = Wiki.visible_to(current_user)
 
+
   end
 
   def show
@@ -10,10 +11,12 @@ class WikisController < ApplicationController
 
   def new
     @wiki = Wiki.new
+    authorize @wiki
   end
 
   def create
     @wiki = Wiki.new(params.require(:wiki).permit(:title, :body))
+    authorize @wiki
     if @wiki.save
       flash[:notice] = "Wiki was saved."
       redirect_to @wiki
