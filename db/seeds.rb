@@ -45,3 +45,18 @@ standard = User.new(
 )
 standard.skip_confirmation!
 standard.save!
+
+# Create items
+10.times do
+  Wiki.create!(
+    user:   users.sample,
+    title:  Faker::Lorem.word,
+    body:  Faker::Lorem.paragraph,
+    private: Faker.random.array_element([true, false])
+  )
+end
+items = Item.all
+
+puts "Seed finished"
+puts "#{User.count} users created"
+puts "#{Item.count} items created"
