@@ -10,22 +10,21 @@ require 'faker'
 #create user my 
 
 # Create an admin user
-2.times do 
-  admin = User.new(
-    name:     'Admin User',
-    email:    'admin@example.com',
-    password: 'helloworld',
-    role:     'admin'
-  )
- admin.skip_confirmation!
- admin.save!
-end 
-user = User.first
-user.update_attributes!(
-  name:     'brock',
-  email: 'brockdonovan@gmail.com',
-  password: 'helloworld'
+admin = User.new(
+  name:     'Admin User',
+  email:    'admin@example.com',
+  password: 'helloworld',
+  role:     'admin'
 )
+admin.skip_confirmation!
+admin.save!
+
+
+# User.first.update_attributes!(
+#   name:     'brock',
+#   email: 'brockdonovan@gmail.com',
+#   password: 'helloworld'
+# )
 
 # Create a moderator
 premium = User.new(
@@ -46,17 +45,19 @@ standard = User.new(
 standard.skip_confirmation!
 standard.save!
 
+users = User.all
+
 # Create items
 10.times do
   Wiki.create!(
     user:   users.sample,
     title:  Faker::Lorem.word,
     body:  Faker::Lorem.paragraph,
-    private: Faker.random.array_element([true, false])
+    #private: Faker.random.array_element([true, false])
   )
 end
-items = Item.all
+wikis = Wiki.all
 
 puts "Seed finished"
 puts "#{User.count} users created"
-puts "#{Item.count} items created"
+puts "#{Wiki.count} items created"

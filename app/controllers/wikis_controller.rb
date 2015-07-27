@@ -1,8 +1,6 @@
 class WikisController < ApplicationController
   def index
     @wikis = Wiki.visible_to(current_user)
-
-
   end
 
   def show
@@ -46,7 +44,7 @@ class WikisController < ApplicationController
     
     if @wiki.destroy
       flash[:notice] = "\"#{@wiki.title}\" was deleted sucessfully."
-      redirect_to @topic
+      render :index
     else
       flash[:error] = "There was an error deleting the wiki."
       render :show
