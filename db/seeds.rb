@@ -10,7 +10,7 @@ require 'faker'
 #create user my 
 
 # Create an admin user
-<<<<<<< HEAD
+
 admin = User.new(
   name:     'Admin User',
   email:    'admin@example.com',
@@ -21,23 +21,6 @@ admin.skip_confirmation!
 admin.save!
 
 
-# User.first.update_attributes!(
-#   name:     'brock',
-#   email: 'brockdonovan@gmail.com',
-#   password: 'helloworld'
-# )
-
-=======
-
-admin = User.new(
-    name:     'Admin User',
-    email:    'admin@example.com',
-    password: 'helloworld',
-    role:     'admin'
-  )
-admin.skip_confirmation!
-admin.save!
-
 brock = User.new(
   name:     'brock',
   email: 'brockdonovan@gmail.com',
@@ -46,7 +29,7 @@ brock = User.new(
 )
 brock.skip_confirmation!
 brock.save!
->>>>>>> seedData
+
 # Create a moderator
 premium = User.new(
   name:     'Premium User',
@@ -68,28 +51,17 @@ standard.save!
 
 users = User.all
 
-<<<<<<< HEAD
-# Create items
-=======
-# Create wikis
->>>>>>> seedData
+
 10.times do
   Wiki.create!(
     user:   users.sample,
     title:  Faker::Lorem.word,
     body:  Faker::Lorem.paragraph,
-<<<<<<< HEAD
-    #private: Faker.random.array_element([true, false])
-=======
->>>>>>> seedData
+    private: [true,false].sample
   )
 end
 wikis = Wiki.all
 
 puts "Seed finished"
 puts "#{User.count} users created"
-<<<<<<< HEAD
-puts "#{Wiki.count} items created"
-=======
 puts "#{Wiki.count} wikis created"
->>>>>>> seedData
