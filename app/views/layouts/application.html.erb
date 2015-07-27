@@ -11,10 +11,12 @@
   <div class = "container">
     <ul class="nav nav-tabs">
       <li><%= link_to "Blocipedia", root_path %></li>
-      <li><%= link_to "All wikis",  wikis_path %></li>
-      <li><%= link_to "Popular Wikis",  wikis_path %></li>
-      <li><%= link_to "Users", user_path(:id) %></li>
-      <li><%= link_to "About", about_path %></li>
+      <% if current_user %>
+        <li><%= link_to "All wikis",  wikis_path %></li>
+        <li><%= link_to "Popular Wikis",  wikis_path %></li>
+        <li><%= link_to "Users", user_path(:id) %></li>
+        <li><%= link_to "About", about_path %></li>
+      <% end %>
 
       <div class="pull-right user-info">
         <% if current_user %>

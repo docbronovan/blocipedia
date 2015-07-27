@@ -1,6 +1,12 @@
 class Wiki < ActiveRecord::Base
   belongs_to :user
 
+  after_initialize :setPrivate
+
+  def setPrivate
+    self.private  ||= false #will set the default role to standard only if it's nil
+  end
+
   default_scope { order('created_at DESC') }
   
   #scope :visible_to, -> (current_user) { where('private = ?', false) or where('user_id = ?', current_user)}
