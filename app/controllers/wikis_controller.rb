@@ -31,7 +31,7 @@ class WikisController < ApplicationController
      @wiki = Wiki.find(params[:id])
      if @wiki.update_attributes(params.require(:wiki).permit(:title, :body))
        flash[:notice] = "Wiki was updated."
-       redirect_to @wiki
+       redirect_to edit_wiki_path
      else
        flash[:error] = "There was an error saving the wiki. Please try again."
        render :edit

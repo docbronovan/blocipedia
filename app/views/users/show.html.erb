@@ -3,8 +3,8 @@
     <div class="media">
       <div class="media-body">
         <br>
-        <h2 class="media-heading"><%= @user.name %></h2>
-        <small>Member since <%= @user.created_at %></small>
+        <h2 class="media-heading"><%= current_user.name %></h2>
+        <small>Member since <%= current_user.created_at %></small>
         <br>
       </div>
       </div>
