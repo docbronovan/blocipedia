@@ -44,7 +44,11 @@ class WikisController < ApplicationController
     
     if @wiki.destroy
       flash[:notice] = "\"#{@wiki.title}\" was deleted sucessfully."
+<<<<<<< HEAD
       render :index
+=======
+      redirect_to action: "index" 
+>>>>>>> seedData
     else
       flash[:error] = "There was an error deleting the wiki."
       render :show
