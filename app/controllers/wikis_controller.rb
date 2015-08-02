@@ -1,10 +1,10 @@
 class WikisController < ApplicationController
-  def index
-    @wikis = Wiki.visible_to(current_user)
-  end
   #def index
-  #  @wikis = policy_scope(Wiki)
+  #  @wikis = Wiki.visible_to(current_user)
   #end
+  def index
+    @wikis = policy_scope(Wiki)
+  end
 
   def show
     @wiki = Wiki.visible_to(current_user).find(params[:id])

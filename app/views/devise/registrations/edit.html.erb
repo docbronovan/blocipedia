@@ -48,7 +48,7 @@
       <h3>Downgrade to standard</h3>
       <%= form_for current_user do |f| %>
         <%= f.hidden_field :role, value: 'standard' %>
-        <%= f.submit 'Downgrade to Standard plan' %>
+        <%= f.submit 'Downgrade',class: 'btn btn-danger' %>
       <% end%>
     <% else %>
       <h3>Upgrade to premium</h3>
@@ -57,7 +57,7 @@
 
     <h3>Cancel my account</h3>
     <div class="form-group">
-        <p><%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: 'btn btn-danger' %></p>
+        <p><%= button_to "Cancel account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: 'btn btn-danger' %></p>
     </div>
   </div>
 </div>

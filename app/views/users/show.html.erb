@@ -3,7 +3,8 @@
     <div class="media">
       <div class="media-body">
         <br>
-        <h2 class="media-heading"><%= current_user.name %></h2>
+        <h2 class="media-heading"><%= current_user.name.capitalize %></h2>
+        <h4><%= current_user.role.upcase %></h4>
         <small>Member since <%= current_user.created_at %></small>
         <br>
       </div>
