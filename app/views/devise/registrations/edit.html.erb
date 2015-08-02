@@ -46,10 +46,13 @@
     
     <% if current_user.role == 'premium' %>
       <h3>Downgrade to standard</h3>
-      <div><%= link_to "Standard Plan",  wikis_path , class: 'btn btn-danger'%></div>
+      <%= form_for current_user do |f| %>
+        <%= f.hidden_field :role, value: 'standard' %>
+        <%= f.submit 'Downgrade to Standard plan' %>
+      <% end%>
     <% else %>
       <h3>Upgrade to premium</h3>
-      <div><%= link_to "Premium Plan",  wikis_path , class: 'btn btn-primary'%></div>
+      <div><%= link_to "Premium Plan",  new_charge_path , class: 'btn btn-primary'%></div>
     <% end %>
 
     <h3>Cancel my account</h3>

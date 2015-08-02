@@ -2,6 +2,10 @@ class UsersController < ApplicationController
  
   def update
     @user = current_user
+    # check user params role can only be standard
+    if user_params[:role] != 'standard'
+      user_params[:role] = 'standard'
+    end
     if current_user.update_attributes(user_params)
       flash[:notice] = "User information updated"
       redirect_to current_user
@@ -19,6 +23,6 @@ class UsersController < ApplicationController
   private
  
   def user_params
-    params.require(:user).permit(:name)
+    params.require(:user).permit(:name, :role)
   end
 end

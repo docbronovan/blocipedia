@@ -16,6 +16,8 @@ class ChargesController < ApplicationController
       currency: 'usd'
     )
 
+    current_user.update(role: 'premium')
+
     flash[:success] = "Thank you for the payment, #{current_user.email}!"
     redirect_to user_path(current_user) # or wherever
 
@@ -29,7 +31,7 @@ class ChargesController < ApplicationController
 
   def new
     @stripe_btn_data = {
-      key: "#{ Rails.configuration.stripe[:publishable_key] }",
+      key:  Figaro.env.stripe_publishable_key,
       description: "Blocipedia Premium - #{current_user.name}",
       amount: Amount.default
     }
