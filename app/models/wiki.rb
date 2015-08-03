@@ -15,6 +15,6 @@ class Wiki < ActiveRecord::Base
     private == false
   end
 
-  #scope :visible_to, -> (current_user) { where('private = ? OR user_id = ?', false, current_user.id) }
+  scope :visible_to, -> (current_user) { where('private = ? OR user_id = ?', false, current_user.id) }
 
 end
