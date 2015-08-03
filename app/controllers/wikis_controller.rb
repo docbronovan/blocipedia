@@ -11,7 +11,8 @@ class WikisController < ApplicationController
   end
 
   def new
-    @wiki = Wiki.new
+    #@wiki = Wiki.new
+    @wiki = current_user.Wiki.new
     authorize @wiki
   end
 
