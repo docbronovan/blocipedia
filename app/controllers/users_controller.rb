@@ -2,8 +2,8 @@ class UsersController < ApplicationController
  
   def update
     @user = current_user
-    @wikis = Wiki.visible_to(current_user)
-    #@wikis = policy_scope(Wiki)
+    wikis = Wiki.visible_to(current_user)
+    @wikis = policy_scope(Wiki)
 
     # check user params role can only be standard
     #if user_params[:role] != 'standard'

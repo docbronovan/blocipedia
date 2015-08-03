@@ -7,19 +7,23 @@ class WikisController < ApplicationController
   end
 
   def show
+    #@wiki = Wiki.find(params[:id])
     @wiki = Wiki.visible_to(current_user).find(params[:id])
   end
 
   def new
     #@wiki = Wiki.new
-    @wiki = current_user.Wiki.new
+    @wiki = current_user.wikis.new
     authorize @wiki
   end
 
   def create
+    #@wiki = current_user.wikis.build(params.require(:wiki).permit(:title, :body, :private))
     @wiki = current_user.wikis.build(params.require(:wiki).permit(:title, :body, :private))
     authorize @wiki
     if @wiki.save
+      #added for through
+      @wiki.users << current_user
       flash[:notice] = "Wiki was saved."
       redirect_to @wiki
     else
