@@ -1,0 +1,63 @@
+<h1>Collaborators#index</h1>
+
+<div class="row">
+  <div class="col-md-3 col-md-offset-1">
+    <div class="list-group">
+      <div class="list-group-item heading">       
+        <strong> Name </strong>
+      </div>
+    </div> 
+  </div>
+  
+  <div class="col-md-3">
+    <div class="list-group">  
+      <div class="list-group-item heading"> 
+          <strong> Email </strong>
+      </div> 
+    </div>
+  </div>
+  
+  <div class="col-md-2">
+    <div class="list-group">  
+      <div class="list-group-item heading"> 
+        <strong>  Give Access </strong>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<% @users.each do |user| %>
+  <div class="row">
+    <div class="col-md-3 col-md-offset-1">
+      <div class="list-group">
+        <div class="list-group-item">       
+          <strong><%= user.name %></strong>
+        </div>
+      </div> 
+    </div>
+    
+    <div class="col-md-3">
+      <div class="list-group">  
+        <div class="list-group-item"> 
+            <%= user.email%>
+        </div> 
+      </div>
+    </div>
+    
+    <div class="col-md-1">
+      <% if current_user.role == 'admin' || current_user.role == 'premium' %>
+          <div class="form-group">
+            <%= f.label :collaborator, class: 'checkbox' do %>
+            <%= f.check_box :collaborator %> 
+            <% end %>
+          </div>
+        <% end %>
+    </div>
+  </div>
+
+<% end %>
+
+
+
+  

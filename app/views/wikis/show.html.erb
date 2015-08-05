@@ -1,2 +1,13 @@
 <h1><%=@wiki.title %></h1>
 <p><%= markdown_to_html(@wiki.body) %></p>
+
+<% if @wiki.user_id == current_user.id %>
+  <div class="col-md-3">
+    <div class="list-group">
+      <div class="list-group-item">  
+        <%= link_to "add collaborator", collaborators_path %>
+      </div>
+    </div>
+  </div>
+
+<% end %>

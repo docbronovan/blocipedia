@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  
+  resources :collaborators, only: [:edit, :index, :new, :show]
   resources :charges, only: [:new, :create]
   resources :wikis
 
@@ -8,6 +10,5 @@ Rails.application.routes.draw do
   end
 
   root :to => "welcome#index"
-
   get 'about' => 'welcome#about'
 end

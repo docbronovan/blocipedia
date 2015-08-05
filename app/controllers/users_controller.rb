@@ -5,11 +5,6 @@ class UsersController < ApplicationController
     wikis = Wiki.visible_to(current_user)
     @wikis = policy_scope(Wiki)
 
-    # check user params role can only be standard
-    #if user_params[:role] != 'standard'
-    #  user_params[:role] = 'standard'
-    #end
-    #if current_user.update_attributes(user_params)
     if current_user.update_attributes(user_params)
       @wikis.update_all(private: false) if current_user.standard?
       flash[:notice] = "User information updated"
