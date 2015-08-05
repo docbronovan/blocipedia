@@ -55,6 +55,7 @@ users = User.all
 10.times do
   Wiki.create!(
     user:   users.sample,
+    user_ids: users.sample.map(&:id),
     title:  Faker::Lorem.word,
     body:  Faker::Lorem.paragraph,
     private: [true,false].sample

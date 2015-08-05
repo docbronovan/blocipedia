@@ -6,7 +6,9 @@ Rails.application.routes.draw do
 
   devise_for :users, :controllers => { :registration => :registration }
   resources :users, only: [:update, :show, :index] do
-    resources :wikis,  shallow: true
+    resources :wikis,  shallow: true do
+      resources :collaborators, shallow: true 
+      end
   end
 
   root :to => "welcome#index"

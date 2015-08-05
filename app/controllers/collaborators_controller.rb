@@ -1,5 +1,6 @@
 class CollaboratorsController < ApplicationController
   def index
+    @wiki = current_user.wikis.find(params[:wiki_id])
     @users = User.all
   end
 

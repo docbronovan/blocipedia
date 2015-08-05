@@ -33,7 +33,7 @@ class WikisController < ApplicationController
 
  def update
      @wiki = Wiki.find(params[:id])
-     if @wiki.update_attributes(params.require(:wiki).permit(:title, :body))
+     if @wiki.update_attributes(params.require(:wiki).permit(:title, :body, user_ids:[]))
        flash[:notice] = "Wiki was updated."
        redirect_to edit_wiki_path
      else
