@@ -53,10 +53,12 @@
   </div>
 </body>
 <footer>
-  <% if (current_user && (current_user.role != 'premium')) %>
-    <div class="row navbar navbar-bottom pan7 text-center">
-      <%= link_to "Premium Plan - Click here to create your own private wikis!",  new_charge_path %>
-    </div>
-  <% end %>
+  <div class = "container">
+    <% if (current_user && (current_user.role != 'premium')) %>
+      <div class="row navbar navbar-bottom pan7 text-center">
+        <%= link_to "Premium Plan - Click here to create your own private wikis!",  new_charge_path %>
+      </div>
+    <% end %>
+  </div>
 </footer>
 </html>
