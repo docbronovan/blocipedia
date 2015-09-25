@@ -19,12 +19,10 @@
       <div class = "row row-bottom">
         
         <% if current_user && (current_user.role != 'premium')%>
-          <div class="col-md-4 ">
-            <div class="media-body-public">
+          <div class="col-md-12 text-center">
               <small>Click here to create your own private wikis!</small>
               <div><%= link_to "Premium Plan",  new_charge_path , class: 'btn btn-primary btn'%>
               </div>
-            </div>
           </div>
         <% end %>
       
