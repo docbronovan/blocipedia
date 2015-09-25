@@ -1,7 +1,7 @@
 class Wiki < ActiveRecord::Base
   belongs_to :user
   #added for collaborators
-  has_many :collaborators
+  has_many :collaborators, dependent: :destroy
   has_many :users, through: :collaborators
   
   after_initialize :setPublic
